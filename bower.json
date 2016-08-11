@@ -1,0 +1,32 @@
+{
+  "name": "angular-form-builder",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Kamil Stepaniak"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "bootstrap",
+    "form",
+    "builder",
+    "wizard"
+  ],
+  "homepage": "https://github.com/kml1990/Angular-Form-Builder",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "jquery-ui": "^1.12.0",
+    "font-awesome": "^4.6.3",
+    "twitter-bootstrap-wizard": "1.3.2"
+  }
+}

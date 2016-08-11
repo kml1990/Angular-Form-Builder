@@ -1,0 +1,40 @@
+{
+  "name": "angular-form-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kml1990/Angular-Form-Builder.git"
+  },
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "del": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.1.0",
+    "gulp-inject": "^1.2.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.2",
+    "main-bower-files": "^2.5.0"
+  },
+  "keywords": [
+    "angular",
+    "bootstrap",
+    "form",
+    "builder",
+    "wizard"
+  ],
+  "author": "Kamil Stepaniak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kml1990/Angular-Form-Builder/issues"
+  },
+  "homepage": "https://github.com/kml1990/Angular-Form-Builder#readme"
+}
