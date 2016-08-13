@@ -1,0 +1,207 @@
+<div class="form-item">
+    <div class="form-header">
+        <div class="form-title">
+            Form Title
+        </div>
+        <div class="form-actions">
+            Form Actions
+        </div>
+    </div>
+    <div class="form-content">
+        <div class="form-builder">
+            <div class="form-body">
+                <div class="form-step">
+                    <ul class="row step-small">
+                        <li class="col-md-4 bg-grey step-item active">
+                            <a href="#general" data-toggle="tab">
+                                <div class="step-number">1</div>
+                                <div class="step-title uppercase font-grey">General</div>
+                                <!--<div class="step-content font-grey">General setup</div>-->
+                            </a>
+                        </li>
+                        <li class="col-md-4 bg-grey step-item">
+                            <a href="#layout" data-toggle="tab">
+                                <div class="step-number">2</div>
+                                <div class="step-title uppercase font-grey">Layout</div>
+                                <!--<div class="step-content font-grey">Layout setup</div>-->
+                            </a>
+                        </li>
+                        <li class="col-md-4 bg-grey step-item">
+                            <a href="#confirm" data-toggle="tab">
+                                <div class="step-number">3</div>
+                                <div class="step-title uppercase font-grey">Confirm</div>
+                                <!--<div class="step-content font-grey">Confirm setup</div>-->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="general">
+                        <h3 class="section-heading">
+                            General Form Setup
+                        </h3>
+                        <div class="setup-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>
+                                        Form Name Settings
+                                    </h4>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-md-4">
+                                            Form Name
+                                            <span class="required"> * </span>
+                                        </label>
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control" name="form_name" " ng-model=" vm.form.form_name "">
+                                                <span class="help-block"> Please provide form name </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-md-4">
+                                            Icon
+                                        </label>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <input type="email" class="form-control" name="form_icon" ng-model="vm.form.form_name_icon">
+                                                    <span class="input-group-addon">
+                                                    <a class="iconSelection" href="#" ng-click="vm.viewIcons()" a-disabled="false">View Icons</a>
+                                                </span>
+                                                </div>
+                                                <span class="help-block"> Please select icon for the form name </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-md-4">
+                                            Color
+                                        </label>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <input type="email" class="form-control" name="form_icon" ng-model="vm.form.form_name_color">
+                                                    <span class="input-group-addon">
+                                                    <a class="colorSelection" href="#" ng-click="vm.viewColors()" a-disabled="false">View Colors</a>
+                                                </span>
+                                                </div>
+                                                <span class="help-block"> Please select color for the form name </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-md-4">
+                                            Is Uppercase? 
+                                        </label>
+                                            <div class="col-md-8">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="isNameUppercase">True
+                                            </label>
+                                                <label class="radio-inline">
+                                                <input type="radio" name="isNameUppercase">False
+                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>
+                                        Form Layout Settings
+                                    </h4>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-md-4">
+                                            Is Multistep? 
+                                        </label>
+                                            <div class="col-md-8">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="isMultistepRadios">True
+                                            </label>
+                                                <label class="radio-inline">
+                                                <input type="radio" name="isMultistepRadios">False
+                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-md-4">
+                                            Form Type
+                                        </label>
+                                            <div class="col-md-8">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="formLayoutRadios">Default
+                                            </label>
+                                                <label class="radio-inline">
+                                                <input type="radio" name="formLayoutRadios">Form Horizontal
+                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <h4>
+                                        Form Appearance Settings
+                                    </h4>
+                                    <hr>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-md-4">
+                                            Background Color
+                                        </label>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <input type="email" class="form-control" name="form_icon" ng-model="vm.form.form_name_color">
+                                                    <span class="input-group-addon">
+                                                    <a class="colorSelection" href="#" ng-click="vm.viewColors()" a-disabled="false">View Colors</a>
+                                                </span>
+                                                </div>
+                                                <span class="help-block"> Please select color for the form name </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="layout">
+                        <h3 class="section-heading">
+                            Form Layout Setup
+                        </h3>
+                        <div class="setup-content">
+                            test
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="confirm">
+                        <h3 class="section-heading">
+                            Form confirmation
+                        </h3>
+                        <div class="setup-content">
+                            test
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-nav">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <a href="#" class="btn btn-outline green button-previous">
+                            <i class="fa fa-angle-left"></i> Back
+                        </a>
+                        <a href="#" class="btn btn-outline green button-next">
+                            Continue
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline green button-submit">
+                            Submit
+                            <i class="fa fa-check"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

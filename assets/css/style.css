@@ -1,11 +1,29 @@
 ﻿body {
     padding-top: 50px;
     background-color: #e9ecf3;
+    font-family: "Open Sans",sans-serif;
 }
+
+
+/*GENERAL SETTINGS */
+
+.required {
+    color: #e74c3c;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+/*CUSTOM BOOTSTRAP CHANGES*/
+.input-group-addon {
+    min-width: 105px;
+}
+/*BOX*/
 
 .form-item {
     padding: 15px;
-    margin-top: 15%;
+    margin-top: 5%;
     min-height: 500px;
     background-color: #fff;
     border: 1px solid #f2f1f1;
@@ -41,3 +59,124 @@
     padding: 10px 0;
 }
 
+/*STEPS*/
+
+.form-step .row {
+    margin: 0;
+}
+
+.step-small {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.form-step .step-small .active {
+    background-color: #32c5d2!important;
+}
+
+.form-step .step-small .step-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-right: 1px solid #fff;
+}
+
+.bg-grey {
+    background: #e9edef!important;
+}
+
+.font-grey {
+    color: #95A5A6!important;
+}
+
+.form-step .step-small .active .step-content, 
+.form-step .step-small .active .step-title {
+    color: #fff!important;
+}
+
+
+
+.form-step .step-small .active .step-number {
+    color: #2ab4c0!important;
+}
+
+.form-step .step-small .step-number {
+    font-size: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    line-height: .79em;
+    color: #dae1e4;
+    z-index: 4;
+}
+
+.form-step .step-small .step-title {
+    font-size: 30px;
+    font-weight: 100;
+    text-align: right;
+    padding-right: 25%;
+    z-index: 5;
+    position: relative;
+}
+
+.form-step .step-small .step-content {
+    text-align: right;
+    position: relative;
+    padding-right: 25%;
+    z-index: 5;
+}
+
+.form-step .step-small > li {
+    display: inline;
+    margin-left: 0px; 
+}
+
+.form-step .step-small > li > a {
+    text-decoration: none;
+    background-color: transparent !important; 
+}
+
+.tab-pane > div.setup-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 300px;
+}
+
+.form-item .form-nav {
+    padding: 20px;
+    margin: 0;
+    border-top: 1px solid #e7ecf1;
+}
+
+/*BUTTONS*/
+.btn {
+    border-radius: 0px;
+}
+
+.btn.btn-outline {
+  border-color: #e1e5ec;
+  color: #e1e5ec;
+  background: none; 
+}
+
+.btn.btn-outline.green {
+    border-color: #32c5d2;
+    color: #32c5d2;
+    background: 0 0;
+}
+
+.btn.btn-outline.green:hover, 
+.btn.btn-outline.green:active, 
+.btn.btn-outline.green:active:hover, 
+.btn.btn-outline.green:active:focus, 
+.btn.btn-outline.green:focus, 
+.btn.btn-outline.green.active {
+    border-color: #32c5d2;
+    color: #FFFFFF;
+    background-color: #32c5d2; 
+}
+
+
+.btn:not(.btn-sm):not(.btn-lg) {
+    line-height: 1.44;
+}
