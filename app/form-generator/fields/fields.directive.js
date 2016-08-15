@@ -1,14 +1,6 @@
 (function () {
     'use strict';
 
-    // coffeescript's for in loop
-    var __indexOf = [].indexOf || function (item) {
-        for (var i = 0, l = this.length; i < l; i++) {
-            if (i in this && this[i] === item) return i;
-        }
-        return -1;
-    };
-
     angular
         .module('formBuilder')
         .directive('ngField', ngField);
@@ -34,7 +26,9 @@
                 'radio'
             ]
 
-            if (__indexOf.call(supported_fields, type) >= 0) {
+
+            var index = _.findIndex(supported_fields, function(o) { return o == type; });
+            if (index !== -1) {
                 return templateUrl += type + '.html';
             }
         }
