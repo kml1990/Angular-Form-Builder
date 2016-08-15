@@ -53,32 +53,77 @@
         }
     }
     /* @ngInject */
-    function MainController() {
+    function MainController($scope, $uibModal) {
 
         var vm = this;
 
-        vm.fontColors = [
-            { 'name': 'Turquoise', 'value': 'turquoise' },
-            { 'name': 'Green Sea', 'value': 'green-sea' },
-            { 'name': 'Emerald', 'value': 'emerald' },
-            { 'name': 'Nephritis', 'value': 'nephritis' },
-            { 'name': 'Peter river', 'value': 'peter-river' },
-            { 'name': 'Belize hole', 'value': 'belize hole' },
-            { 'name': 'Amethyst', 'value': 'amethyst' },
-            { 'name': 'Wisteria', 'value': 'wisteria' },
-            { 'name': 'Wet asphalt', 'value': 'wet-asphalt' },
-            { 'name': 'Midnight blue', 'value': 'midnight-blue' },
-            { 'name': 'Sun flower', 'value': 'sun flower' },
-            { 'name': 'Orange', 'value': 'orange' },
-            { 'name': 'Carrot', 'value': 'carrot' },
-            { 'name': 'Pumpkin', 'value': 'pumpkin' },
-            { 'name': 'Alizarin', 'value': 'alizarin' },
-            { 'name': 'Pomegranate', 'value': 'pomegranate' },
-            { 'name': 'Clouds', 'value': 'clouds' },
-            { 'name': 'Silver', 'value': 'silver' },
-            { 'name': 'Concrete', 'value': 'concrete' },
-            { 'name': 'Asbestos', 'value': 'asbestos' },
-        ]
+        vm.edit = true;
+
+        vm.form = {
+            "form_id": "1",
+            "form_layout": "default",
+            "form_isMultistep": false,
+            "form_rows": [
+                {
+                    "row_id": 1,
+                    "columns": [
+                        {
+                            "column_id": 1,
+                            "column_width": "col-md-12",
+                            "form_fields": [
+                                {
+                                    "field_id": 1,
+                                    "field_title": "Label",
+                                    "field_type": "dropdown",
+                                    "field_value": null,
+                                    "field_required": false,
+                                    "field_disabled": false,
+                                    "field_data_source": "manually",
+                                    "field_options": [
+                                        {
+                                            "option_id": 1,
+                                            "option_title": "Option 1",
+                                            "option_value": "Value1"
+                                        },
+                                        {
+                                            "option_id": 2,
+                                            "option_title": "Option 2",
+                                            "option_value": "Value2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        vm.selectColor = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'app/common/color-select/color-select.html',
+                controller: 'ColorSelectController',
+                controllerAs: 'vm',
+                size: 'lg',
+            });
+        }
+
+        vm.viewIcons = function () {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'app/common/icon-select/icon-select.html',
+                    controller: 'IconListController',
+                    controllerAs: 'vm',
+                    size: 'lg',
+                });
+            }
+
+        $scope.$on('select-form-name-color', function (event, args) {
+            vm.form.form_name_color = args;
+        });
+
+
 
     }
 })();

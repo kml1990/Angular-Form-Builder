@@ -1,0 +1,20 @@
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 field_controls">
+            <span class="pull-right field_control" ng-if="vm.edit"><a href="#" ng-click="vm.removeField(vm.field)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span>
+            <span class="pull-right field_control" ng-if="vm.edit"><a href="#" ng-click="vm.editField(vm.field)"><i class="fa fa-pencil"></i></a></span>
+        </div>
+    </div>
+    <div ng-class="vm.formLayout === 'form-horizontal' ? 'col-md-12': ''">
+        <label ng-class="vm.formLayout === 'form-horizontal' ? '': 'col-md-3 control-label'">{{vm.field.field_title}}</label>
+        <div ng-class="vm.formLayout === 'form-horizontal' ? '': 'col-md-9'">
+            <div ng-class="vm.field.field_styling.field_position === 'inline' ? 'mt-checkbox-inline' : 'mt-checkbox-list'">
+                <label class="mt-checkbox" ng-repeat="option in vm.field.field_options">
+                        <input type="checkbox" value="{{option.option_value}}" name="{{option.option_value}}" ng-model="option.option_value"> {{option.option_title}}
+                        <span></span>
+                    </label>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

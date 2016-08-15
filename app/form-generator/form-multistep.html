@@ -1,0 +1,91 @@
+<form class="form-horizontal" action="#" id="submit_form" method="POST">
+    <div class="form-wizard dynamic-form-wizard">
+        <div class="form-body">
+            <span class="pull-right" ng-if="vm.edit"><a href="#" ng-click="vm.editForm(vm.form)"><i class="fa fa-edit"></i></a></span>
+            <ul class="nav nav-pills nav-justified steps">
+                <li ng-class="{active: $index==0}" ng-repeat="step in vm.form.form_steps">
+                    <a ng-href="#{{step.step_name}}" data-toggle="tab" class="step" a-disabled="false">
+                        <span class="number"> {{step.step_id}} </span>
+                        <span class="desc">
+                            <i class="fa fa-check"></i> {{step.step_name}}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <div id="bar" class="progress progress-striped" role="progressbar">
+                <div class="progress-bar progress-bar-success dynamic-progress-bar"> </div>
+            </div>
+            <div class="tab-content">
+
+                <div class="tab-pane" ng-class="{active: $index==0}" id="{{step.step_name}}" ng-repeat="step in vm.form.form_steps">
+                    <h3 class="block">
+                        {{step.step_heading}}
+                    </h3>
+                    <div ng-repeat="fields in vm.form.form_steps">
+                        <!--{{key}}-->
+                        <div ng-if="step.step_id === $index + 1">
+
+                            <div ng-repeat="stepfield in fields.step_fields">
+                                <ng-field field="stepfield" edit="vm.edit" form-layout="vm.form.form_layout">
+                                </ng-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="actions">
+                                <div class="btn-group pull-right">
+                                    <a class="btn green sbold uppercase btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown"
+                                        data-close-others="true" aria-expanded="false">
+                                            Add Component
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('checkbox', step.step_id)"> Checkbox</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('date', step.step_id)">Date</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('dropdown', step.step_id)">Dropdown</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('email', step.step_id)">Email</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('password', step.step_id)">Password</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('radio', step.step_id)">Radio</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('textarea', step.step_id)">Textarea</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addFieldMultistep('textfield', step.step_id)">Textfield</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions dynamic-form-actions">
+            <a href="#" class="btn btn-outline green dynamic-button-previous" a-disabled="false">
+                <i class="fa fa-angle-left"></i> Back
+            </a>
+            <a href="#" class="btn btn-outline green dynamic-button-next" a-disabled="false">
+                Continue
+                <i class="fa fa-angle-right"></i>
+            </a>
+            <a href="#" class="btn green dynamic-button-submit" a-disabled="false">
+                Submit
+                <i class="fa fa-check"></i>
+            </a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,20 @@
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 field_controls">
+            <span class="pull-right field_control" ng-if="vm.edit"><a href="#" ng-click="vm.removeField(vm.field)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span>
+            <span class="pull-right field_control" ng-if="vm.edit"><a href="#" ng-click="vm.editField(vm.field)"><i class="fa fa-pencil"></i></a></span>
+        </div>
+    </div>
+    <div ng-class="vm.formLayout === 'form-horizontal' ? 'col-md-12': ''">
+        <label ng-class="vm.formLayout === 'form-horizontal' ? '': 'col-md-3 control-label'">{{vm.field.field_title}}</label>
+        <div ng-class="vm.formLayout === 'form-horizontal' ? '': 'col-md-9'">
+            <div class="" ng-class="vm.field.field_styling.field_hasIcon === true ? [vm.field.field_styling.field_icon_placement, 'input-icon'] : ''">
+                <i ng-if="vm.field.field_styling.field_hasIcon" ng-class="vm.field.field_styling.field_icon"></i>
+                <textarea type="text" class="form-control" ng-class="[vm.field.field_styling.field_style]" ng-model="vm.field.field_value"
+                    value="{{vm.field.field_value}}" ng-disabled="vm.field.field_disabled" placeholder="{{vm.field.field_placeholder}}"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>

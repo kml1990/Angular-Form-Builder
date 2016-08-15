@@ -1,0 +1,92 @@
+<form role="form" ng-class="vm.form.form_layout === 'default' ? '' : 'form-horizontal'">
+    <div class="row" ng-class="vm.edit === false ? '' : 'form-rows'" ng-repeat="row in vm.form.form_rows">
+
+        <div class="col-md-8 row-title" ng-if="vm.edit">
+            <h4>Row {{$index + 1}}</h4>
+        </div>
+        <div class="col-md-4 row-controls" ng-if="vm.edit">
+            <a type="button" class="btn btn-circle btn-icon-only btn-default row-control" aria-hidden="true" tooltip-placement="top"
+                uib-tooltip="Remove row" ng-click="vm.removeRow($index)">
+                <i class="fa fa-trash-o"></i>
+            </a>
+
+            <a type="button" class="btn btn-circle btn-icon-only btn-default row-control" aria-hidden="true" tooltip-placement="top"
+                uib-tooltip="Add column" ng-click="vm.addColumn($index)">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+        <div ui-sortable="sortableOptions" ng-model="row.columns">
+            <div ng-class="column.column_width" id="row{{row.row_id}}col{{column.column_id}}" ng-repeat="column in row.columns">
+                <div ng-class="vm.edit === false ? '' : 'form-columns'">
+                    <div class="row column-controls" ng-if="vm.edit">
+                        <div class="col-md-8">
+                            <a href="#" class="btn btn-circle btn-icon-only btn-default column-control" ng-click="vm.increaseColumn(row.row_id, $index)">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <a href="#" class="btn btn-circle btn-icon-only btn-default column-control" ng-click="vm.decreaseColumn(row.row_id, $index)">
+                                <i class="fa fa-minus"></i>
+                            </a>
+                            <span>{{column.column_width}}</span>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <a href="#" class="btn btn-circle btn-icon-only btn-default column-control" ng-click="vm.removeColumn(row.row_id, $index)">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr ng-if="vm.edit">
+                    <div ng-repeat="field in column.form_fields">
+                        <ng-field field="field" edit="vm.edit" form-layout="vm.form.form_layout" row="{{row.row_id}}" column="{{column.column_id}}">
+                        </ng-field>
+                    </div>
+                    <div class="row add-field" ng-if="vm.edit">
+                        <div class="col-md-12">
+                            <div class="actions">
+                                <div class="btn-group pull-right">
+                                    <a class="btn green sbold uppercase btn-outline btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown"
+                                        data-close-others="true" aria-expanded="false">
+                                        Add Field
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('checkbox', row.row_id, $index)"> Checkbox</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('date', row.row_id, $index)">Date</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('dropdown', row.row_id, $index)">Dropdown</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('email', row.row_id, $index)">Email</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('password', row.row_id, $index)">Password</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('radio', row.row_id, $index)">Radio</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('textarea', row.row_id, $index)">Textarea</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ng-click="vm.addField('textfield', row.row_id, $index)">Textfield</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--ADD ROWS-->
+    <div class="pull-right" ng-if="vm.edit">
+        <a href="#" class="btn btn-sm green" ng-click="vm.addRow()">
+            <i class="fa fa-plus"></i> Add row
+        </a>
+    </div>
+</form>

@@ -1,0 +1,237 @@
+<div class="modal-header">
+    <h3 class="modal-title">Edit {{vm.field.field_type}} field</h3>
+</div>
+<div class="modal-body">
+    <div class="tabbable-custom nav-justified">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active">
+                <a href="#general" data-toggle="tab" a-disabled="false">General</a>
+            </li>
+            <li>
+                <a href="#styling" data-toggle="tab" a-disabled="false"> Styling</a>
+            </li>
+            <li ng-if="vm.hasOptions">
+                <a href="#options" data-toggle="tab" a-disabled="false">Options</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!--GENERAL-->
+            <div class="tab-pane active" id="general">
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <h3 class="block">
+                            General Information
+                        </h3>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Field Title</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control input-circle" ng-model="vm.field.field_title">
+                                <span class="help-block"> Provide text for field title </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Field Type</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control input-circle" ng-model="vm.field.field_type" disabled="disabled">
+                                <span class="help-block">Field type (cannot be edited) </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Required</label>
+                            <div class="col-md-8">
+                                <div class="mt-radio-list">
+                                    <label class="mt-radio">
+                                        <input type="radio" name="requiredRadios" id="requiredRadio1" ng-value="true" ng-model="vm.field.field_required"> true
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" name="requiredRadios" id="requiredRadio2" ng-value="false" ng-model="vm.field.field_required"> false
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Disabled</label>
+                            <div class="col-md-8">
+                                <div class="mt-radio-list">
+                                    <label class="mt-radio">
+                                        <input type="radio" name="disableRadios" id="disableRadio1" ng-value="true" ng-model="vm.field.field_disabled"> true
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" name="disableRadios" id="disableRadios2" ng-value="false" ng-model="vm.field.field_disabled"> false
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--GENERAL END-->
+            <!--STYLING-->
+            <div class="tab-pane" id="styling">
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <h3 class="block"> Styling options</h3>
+                        <div class="form-group" ng-if="vm.hasOptions">
+                            <label class="col-md-3 control-label">Position</label>
+                            <div class="col-md-8">
+                                <div class="mt-radio-list">
+                                    <label class="mt-radio">
+                                        <input type="radio" name="positionRadios" id="positionRadio1" ng-value="'default'" ng-model="vm.field.field_styling.field_position"> default
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" name="positionRadios" id="positionRadio2" ng-value="'inline'" ng-model="vm.field.field_styling.field_position"> inline
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="!vm.hasOptions">
+                            <label class="col-md-3 control-label">Has Icon</label>
+                            <div class="col-md-8">
+                                <div class="mt-radio-list">
+                                    <label class="mt-radio">
+                                        <input type="radio" name="hasIconRadios" id="hasIconRadio1" ng-value="true" ng-model="vm.field.field_styling.field_hasIcon"> true
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" name="hasIconRadios" id="hasIconRadio2" ng-value="false" ng-model="vm.field.field_styling.field_hasIcon"> false
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="!vm.hasOptions">
+                            <label class="control-label col-md-3">
+                                Input Icon
+                            </label>
+                            <div class="col-md-8">
+                                <div class="input-group">
+
+                                    <input type="email" class="form-control input-circle-left" name="form_icon" ng-model="vm.field.field_styling.field_icon">
+                                    <span class="input-group-addon input-circle-right">
+                                        <a class="iconSelection" href="#" ng-click="vm.viewIcons()" a-disabled="false">View Icons</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="!vm.hasOptions">
+                            <label class="col-md-3 control-label">Icon Placement</label>
+                            <div class="col-md-8">
+                                <div class="mt-radio-list">
+                                    <label class="mt-radio">
+                                        <input type="radio" name="iconPlacementRadios" id="iconPlacementRadio1" ng-value="'right'" ng-model="vm.field.field_styling.field_icon_placement"> right
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" name="iconPlacementRadios" id="iconPlacementRadios2" ng-value="'left'" ng-model="vm.field.field_styling.field_icon_placement"> left
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--STYLING END-->
+            <!--OPTIONS-->
+            <div class="tab-pane" id="options" ng-if="vm.hasOptions">
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <h3 class="block"> Options</h3>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Data source</label>
+                            <div class="col-md-8">
+                                <div class="mt-radio-list">
+                                    <label class="mt-radio">
+                                        <input type="radio" name="dataSourceRadios" id="dataSourceRadio1" ng-value="'manually'" ng-model="vm.field.field_data_source"> Manually
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" name="dataSourceRadios" id="dataSourceRadio2" ng-value="'api'" ng-model="vm.field.field_data_source"> API
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.field.field_data_source === 'manually'">
+                            <label class="col-md-3 control-label">Field Options</label>
+                            <div class="col-md-8">
+                                <div ng-repeat="option in vm.field.field_options">
+
+                                    <div class="row" style="margin-bottom: 20px;">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control input-circle" ng-model="option.option_value" placeholder="{{option.option_value}}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-circle-left" ng-model="option.option_title" placeholder="{{option.option_title}}">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn red input-circle-right" ng-click="vm.deleteOption(vm.field, option)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn green btn-sm btn-circle" type="button" ng-click="vm.addOption(vm.field)"><i class="fa fa-plus" aria-hidden="true"></i> Add Option</button>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.field.field_data_source === 'api'">
+
+                            <label class="col-md-3 control-label">Request URL</label>
+                            <div class="input-group col-md-8">
+                                <span class="input-group-addon input-circle-left">
+                                    <a href="#" class="request_type" ng-click="vm.requestType = !vm.requestType">{{vm.requestType === false ? 'GET' : 'POST'}}</a>
+                                </span>
+                                <input type="text" class="form-control input-circle-right" ng-model="vm.field.data.request_url" placeholder="Enter requrest URL here">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.field.field_data_source === 'api'">
+                            
+                                    <div class="col-md-12">
+                                        <div class="panel-group accordion" id="accordion3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion3" href="#urlParams" a-disabled="false"
+                                                        aria-expanded="true">URL Params</a>
+                                                </h4>
+                                            </div>
+                                            <div id="urlParams" class="panel-collapse collapse in" aria-expanded="true">
+                                                <div class="panel-body">
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#headers"
+                                                        aria-expanded="false" a-disabled="false">Headers</a>
+                                                </h4>
+                                            </div>
+                                            <div id="headers" class="panel-collapse collapse" aria-expanded="false">
+                                                <div class="panel-body" style="height:200px; overflow-y:auto;">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--OPTIONS END-->
+</div>
+<div class="modal-footer">
+    <button class="btn btn-outline green" type="button" ng-click="vm.cancel()">Done</button>
+</div>

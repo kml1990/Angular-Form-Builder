@@ -1,7 +1,7 @@
 <div class="form-item">
     <div class="form-header">
-        <div class="form-title">
-            Form Title
+        <div class="form-title" ng-class="">
+            Form Generator
         </div>
         <div class="form-actions">
             Form Actions
@@ -37,79 +37,19 @@
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane active" id="general">
-                        <h3 class="section-heading">
-                            General Form Setup
-                        </h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="section-heading">
+                                    General Form Setup
+                                </h3>
+                            </div>
+                        </div>
+
                         <div class="setup-content">
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4>
-                                        Form Name Settings
-                                    </h4>
-                                    <hr>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label class="control-label col-md-4">
-                                            Form Name
-                                            <span class="required"> * </span>
-                                        </label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control" name="form_name" " ng-model=" vm.form.form_name "">
-                                                <span class="help-block"> Please provide form name </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label class="control-label col-md-4">
-                                            Icon
-                                        </label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <input type="email" class="form-control" name="form_icon" ng-model="vm.form.form_name_icon">
-                                                    <span class="input-group-addon">
-                                                    <a class="iconSelection" href="#" ng-click="vm.viewIcons()" a-disabled="false">View Icons</a>
-                                                </span>
-                                                </div>
-                                                <span class="help-block"> Please select icon for the form name </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label class="control-label col-md-4">
-                                            Color
-                                        </label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <input type="email" class="form-control" name="form_icon" ng-model="vm.form.form_name_color">
-                                                    <span class="input-group-addon">
-                                                    <a class="colorSelection" href="#" ng-click="vm.viewColors()" a-disabled="false">View Colors</a>
-                                                </span>
-                                                </div>
-                                                <span class="help-block"> Please select color for the form name </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label class="control-label col-md-4">
-                                            Is Uppercase? 
-                                        </label>
-                                            <div class="col-md-8">
-                                                <label class="radio-inline">
-                                                <input type="radio" name="isNameUppercase">True
-                                            </label>
-                                                <label class="radio-inline">
-                                                <input type="radio" name="isNameUppercase">False
-                                            </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4>
-                                        Form Layout Settings
+                                        Form Settings
                                     </h4>
                                     <hr>
                                     <div class="form-group">
@@ -118,11 +58,11 @@
                                             Is Multistep? 
                                         </label>
                                             <div class="col-md-8">
-                                                <label class="radio-inline">
-                                                <input type="radio" name="isMultistepRadios">True
+                                                <label class="radio">
+                                                <input type="radio" name="isMultistepRadios" ng-model="form_isMultistep">True
                                             </label>
-                                                <label class="radio-inline">
-                                                <input type="radio" name="isMultistepRadios">False
+                                                <label class="radio">
+                                                <input type="radio" name="isMultistepRadios" ng-model="form_isMultistep">False
                                             </label>
                                             </div>
                                         </div>
@@ -133,18 +73,19 @@
                                             Form Type
                                         </label>
                                             <div class="col-md-8">
-                                                <label class="radio-inline">
-                                                <input type="radio" name="formLayoutRadios">Default
+                                                <label class="radio">
+                                                <input type="radio" name="formLayoutRadios" ng-value="'default'" ng-model="vm.form.form_layout">Default
                                             </label>
-                                                <label class="radio-inline">
-                                                <input type="radio" name="formLayoutRadios">Form Horizontal
+                                                <label class="radio">
+                                                <input type="radio" name="formLayoutRadios" ng-value="'form-horizontal'" ng-model="vm.form.form_layout">Form Horizontal
                                             </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <br>
+                                </div>
+                                <div class="col-md-6">
                                     <h4>
-                                        Form Appearance Settings
+                                        Form Style Settings
                                     </h4>
                                     <hr>
                                     <div class="form-group">
@@ -156,7 +97,7 @@
                                                 <div class="input-group">
                                                     <input type="email" class="form-control" name="form_icon" ng-model="vm.form.form_name_color">
                                                     <span class="input-group-addon">
-                                                    <a class="colorSelection" href="#" ng-click="vm.viewColors()" a-disabled="false">View Colors</a>
+                                                    <a class="colorSelection" href="#" ng-click="vm.selectColor()">View Colors</a>
                                                 </span>
                                                 </div>
                                                 <span class="help-block"> Please select color for the form name </span>
@@ -168,11 +109,21 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="layout">
-                        <h3 class="section-heading">
-                            Form Layout Setup
-                        </h3>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3 class="section-heading">
+                                    Form Layout Setup
+                                </h3>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="layout-actions pull-right">
+                                    <a href="#" class="btn btn-outline green" ng-class="vm.edit == true ? 'active': ''" ng-click="vm.edit = true">Build</a>
+                                    <a href="#" class="btn btn-outline green" ng-class="vm.edit != true ? 'active': ''" ng-click="vm.edit = false">Preview</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="setup-content">
-                            test
+                            <ng-form-generator form="vm.form" edit="vm.edit"></ng-form-generator>
                         </div>
                     </div>
                     <div class="tab-pane" id="confirm">
@@ -201,6 +152,9 @@
                         </a>
                     </div>
                 </div>
+                <!--<div class="row">
+                    <pre>{{vm.form | json}}</pre>
+                </div>-->
             </div>
         </div>
     </div>

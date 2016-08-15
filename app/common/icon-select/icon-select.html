@@ -1,0 +1,59 @@
+<div class="modal-header">
+    <h3 class="modal-title">Icon List</h3>
+</div>
+<div class="modal-body">
+    <div class="tabbable-custom nav-justified">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active">
+                <a href="#glyphicons" data-toggle="tab" a-disabled="false">Glyphicons</a>
+            </li>
+            <li>
+                <a href="#fontawesome" data-toggle="tab" a-disabled="false"> Font Awesome Icons</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!--glyphicons-->
+            <div class="tab-pane active" id="glyphicons">
+                <div class="row" id="scrolable-div">
+                    <div class="col-md-12 search-icons">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Search Icon</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" ng-model="searchGlyphicons" placeholder="Enter icon name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row fontawesome-icon-list">
+                    <div class="col-md-3 col-sm-4" ng-repeat="icon in vm.glyphicons | filter: searchGlyphicons">
+                        <a href="#" class="icon-item" ng-click="vm.selectIcon(icon)"><i class="glyphicon" ng-class="icon"></i> {{icon}}</a>
+                    </div>
+                </div>
+            </div>
+            <!--glyphicons END-->
+            <!--fontawesome-->
+            <div class="tab-pane" id="fontawesome">
+                <div class="row">
+                    <div class="col-md-12 search-icons">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Search Icon</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" ng-model="searchFontAwesome" placeholder="Enter icon name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row fontawesome-icon-list">
+                    <div class="col-md-3 col-sm-4" ng-repeat="icon in vm.fontawesome | filter: searchFontAwesome">
+                        <a href="#" class="icon-item" ng-click="vm.selectIcon(icon)"><i class="fa" ng-class="icon"></i> {{icon}}</a>
+                    </div>
+                </div>
+            </div>
+            <!--fontawesome END-->
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-outline green" type="button" ng-click=" vm.cancel()">Cancel</button>
+    <button class="btn btn-outline green" type="button" ng-click="vm.selectIcon()">Select Icon</button>
+</div>

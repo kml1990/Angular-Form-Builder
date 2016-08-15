@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h3 class="modal-title">Color Selection</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Flat Colors</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="color-box" ng-class="$index === 0 ? 'color-active' : ''" ng-repeat="color in vm.colors" style="background-color: {{color.value}}" ng-click="vm.selectColor($index, color)"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-outline green" type="button" ng-click="vm.close()">Done</button>
+    </div>

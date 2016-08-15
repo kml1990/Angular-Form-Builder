@@ -22,7 +22,9 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "lodash": "^4.15.0",
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
     "jquery-ui": "^1.12.0",
